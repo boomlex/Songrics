@@ -13,4 +13,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Songrics.Data.Models\Songrics.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\Songrics.Data\Songrics.Data.csproj" />
+  </ItemGroup>
+
 </Project>

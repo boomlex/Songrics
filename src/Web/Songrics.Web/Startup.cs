@@ -39,6 +39,7 @@ namespace Songrics.Web
                 options.UseSqlServer(
                     this.Configuration.GetConnectionString("DefaultConnection")));
 
+                // With this you can add manually options for passwords and more.
             services.AddDefaultIdentity<SongricsUser>()
                 .AddEntityFrameworkStores<SongricsContext>();
 
