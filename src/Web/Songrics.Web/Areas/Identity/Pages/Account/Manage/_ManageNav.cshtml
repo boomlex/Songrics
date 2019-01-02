@@ -1,4 +1,5 @@
-﻿@inject SignInManager<SongricsUser> SignInManager
+﻿@using Songrics.Data.Models
+@inject SignInManager<SongricsUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

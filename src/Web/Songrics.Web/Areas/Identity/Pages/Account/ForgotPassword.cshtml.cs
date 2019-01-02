@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Songrics.Web.Areas.Identity.Data;
+using Songrics.Data.Models;
 
 namespace Songrics.Web.Areas.Identity.Pages.Account
 {

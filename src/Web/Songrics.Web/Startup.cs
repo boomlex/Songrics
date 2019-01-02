@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Songrics.Web.Areas.Identity.Data;
+using Songrics.Data.Models;
 using Songrics.Web.Models;
 
 namespace Songrics.Web

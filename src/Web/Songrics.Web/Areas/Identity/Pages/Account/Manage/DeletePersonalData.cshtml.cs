@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Songrics.Web.Areas.Identity.Data;
+using Songrics.Data.Models;
 
 namespace Songrics.Web.Areas.Identity.Pages.Account.Manage
 {
