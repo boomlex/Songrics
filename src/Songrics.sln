@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Songrics.Data.Models", "Dat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E9DD7161-77DC-4306-80C3-B28F0C56510A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Tests\Sandbox\Sandbox.csproj", "{D313E520-327D-4FBE-8ACB-ACBD0143E232}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Tests\Sandbox\Sandbox.csproj", "{D313E520-327D-4FBE-8ACB-ACBD0143E232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songrics.Data.Common", "Data\Songrics.Data.Common\Songrics.Data.Common.csproj", "{4BEF7A4B-388F-4D4B-8E60-C2CD4359662C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{D313E520-327D-4FBE-8ACB-ACBD0143E232}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D313E520-327D-4FBE-8ACB-ACBD0143E232}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D313E520-327D-4FBE-8ACB-ACBD0143E232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BEF7A4B-388F-4D4B-8E60-C2CD4359662C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BEF7A4B-388F-4D4B-8E60-C2CD4359662C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BEF7A4B-388F-4D4B-8E60-C2CD4359662C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BEF7A4B-388F-4D4B-8E60-C2CD4359662C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{0210C895-F04A-44D7-864A-844CA6799806} = {E1EF14B9-A10E-43CC-AA98-2C95608B296F}
 		{5451C925-0810-4EB0-93D5-064C6D5A55AB} = {E1EF14B9-A10E-43CC-AA98-2C95608B296F}
 		{D313E520-327D-4FBE-8ACB-ACBD0143E232} = {E9DD7161-77DC-4306-80C3-B28F0C56510A}
+		{4BEF7A4B-388F-4D4B-8E60-C2CD4359662C} = {E1EF14B9-A10E-43CC-AA98-2C95608B296F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91853353-0AA1-4A3E-8A72-D7F52D5A14A8}
