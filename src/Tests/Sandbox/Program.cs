@@ -5,6 +5,8 @@ using CommandLine;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Songrics.Data;
+using Songrics.Data.Common;
 using Songrics.Web.Models;
 
 namespace Sandbox
@@ -33,16 +35,18 @@ namespace Sandbox
             //TODO: Code here
         }
 
-        private static void ConfigureServices(ServiceCollection serviceCollection)
+        private static void ConfigureServices(ServiceCollection services)
         {
             var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", false, true)
                 .AddEnvironmentVariables()
                 .Build();
 
-            serviceCollection.AddDbContext<SongricsContext>(options =>
+            services.AddDbContext<SongricsContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
         }
     }
 }
