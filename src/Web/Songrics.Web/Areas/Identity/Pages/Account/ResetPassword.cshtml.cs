@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Songrics.Data.Models;
 
-namespace Songrics.Web.Areas.Identity.Pages.Account
+namespace Songrics.Services.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ResetPasswordModel : PageModel

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Songrics.Data;
 using Songrics.Data.Common;
-using Songrics.Web.Models;
+using Songrics.Services.Models;
 
 namespace Sandbox
 {

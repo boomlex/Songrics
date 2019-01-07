@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Songrics.Data.Models;
 
-namespace Songrics.Web.Models
+namespace Songrics.Services.Models
 {
     public class SongricsContext : IdentityDbContext<SongricsUser>
     {

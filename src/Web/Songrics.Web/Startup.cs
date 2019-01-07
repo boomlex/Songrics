@@ -15,9 +15,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Songrics.Data;
 using Songrics.Data.Common;
 using Songrics.Data.Models;
-using Songrics.Web.Models;
+using Songrics.Services.DataServices;
+using Songrics.Services.Models;
 
-namespace Songrics.Web
+namespace Songrics.Services
 {
     public class Startup
     {
@@ -41,7 +42,7 @@ namespace Songrics.Web
                 options.UseSqlServer(
                     this.Configuration.GetConnectionString("DefaultConnection")));
 
-                // With this you can add manually options for passwords and more.
+            // With this you can add manually options for passwords and more.
             services.AddDefaultIdentity<SongricsUser>()
                 .AddEntityFrameworkStores<SongricsContext>();
 
@@ -49,9 +50,10 @@ namespace Songrics.Web
 
             //Application services
             services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
+            services.AddScoped<ILyricsService, LyricsService>();
         }
 
-    
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

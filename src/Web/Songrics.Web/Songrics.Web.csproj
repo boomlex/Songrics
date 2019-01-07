@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
@@ -17,6 +18,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Songrics.Data.Models\Songrics.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\Songrics.Data\Songrics.Data.csproj" />
+    <ProjectReference Include="..\..\Services\Songrics.Services.DataServices\Songrics.Services.DataServices.csproj" />
+    <ProjectReference Include="..\..\Services\Songrics.Services.Models\Songrics.Services.Models.csproj" />
   </ItemGroup>
 
 </Project>

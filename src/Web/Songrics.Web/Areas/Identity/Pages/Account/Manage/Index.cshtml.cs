@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Songrics.Data.Models;
 
-namespace Songrics.Web.Areas.Identity.Pages.Account.Manage
+namespace Songrics.Services.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
