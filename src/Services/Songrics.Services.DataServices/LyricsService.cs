@@ -5,6 +5,7 @@ using Songrics.Data.Common;
 using Songrics.Data.Models;
 using Songrics.Services.Models.Lyrics;
 using System.Linq;
+using Songrics.Services.Mapping;
 using Songrics.Services.Models.Home;
 
 namespace Songrics.Services.DataServices
@@ -22,17 +23,8 @@ namespace Songrics.Services.DataServices
         {
             var lyrics = this.lyricRepository.All()
                 .OrderBy(x => Guid.NewGuid())
-                .Select(
-                    x => new IndexLyricViewModel
-                    {
-                        Id = x.id,
-                        Title = x.Title,
-                        ArtistName = x.ArtistName,
-                        AlbumName = x.AlbumName,
-                        VideoLink = x.VideoLink,
-                        SongLyric = x.SongLyric,
-
-                    }).Take(count).ToList();
+                .To<IndexLyricViewModel>()
+                .Take(count).ToList();
             return lyrics;
         }
 
@@ -42,7 +34,7 @@ namespace Songrics.Services.DataServices
 
             var lyric = new Lyric
             {
-                
+
                 Title = title,
                 ArtistName = artistName,
                 AlbumName = albumName,
@@ -59,7 +51,7 @@ namespace Songrics.Services.DataServices
         {
             var lyric = this.lyricRepository.All().Where(x => x.id == id).Select(x => new LyricDetailsViewModel
             {
-                
+
                 Title = x.Title,
                 ArtistName = x.ArtistName,
                 AlbumName = x.AlbumName,

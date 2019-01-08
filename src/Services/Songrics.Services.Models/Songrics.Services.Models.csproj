@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\Songrics.Data.Common\Songrics.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\Songrics.Data.Models\Songrics.Data.Models.csproj" />
+    <ProjectReference Include="..\Songrics.Services.Mapping\Songrics.Services.Mapping.csproj" />
   </ItemGroup>
 
 </Project>

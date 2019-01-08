@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Songrics.Services.DataServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songrics.Services.Models", "Services\Songrics.Services.Models\Songrics.Services.Models.csproj", "{8DD1C387-1048-4EEF-AE06-16E40BB57123}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songrics.Services.Mapping", "Services\Songrics.Services.Mapping\Songrics.Services.Mapping.csproj", "{E038FD4E-4C56-41C4-A261-3B6F784D9A5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{8DD1C387-1048-4EEF-AE06-16E40BB57123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DD1C387-1048-4EEF-AE06-16E40BB57123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DD1C387-1048-4EEF-AE06-16E40BB57123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E038FD4E-4C56-41C4-A261-3B6F784D9A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E038FD4E-4C56-41C4-A261-3B6F784D9A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E038FD4E-4C56-41C4-A261-3B6F784D9A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E038FD4E-4C56-41C4-A261-3B6F784D9A5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{4BEF7A4B-388F-4D4B-8E60-C2CD4359662C} = {E1EF14B9-A10E-43CC-AA98-2C95608B296F}
 		{4BB53081-D5A0-470B-BACF-2459C31939F1} = {BA7E64FF-35A8-4897-8C71-DEDD5E78871F}
 		{8DD1C387-1048-4EEF-AE06-16E40BB57123} = {BA7E64FF-35A8-4897-8C71-DEDD5E78871F}
+		{E038FD4E-4C56-41C4-A261-3B6F784D9A5D} = {BA7E64FF-35A8-4897-8C71-DEDD5E78871F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91853353-0AA1-4A3E-8A72-D7F52D5A14A8}

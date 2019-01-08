@@ -16,7 +16,10 @@ using Songrics.Data;
 using Songrics.Data.Common;
 using Songrics.Data.Models;
 using Songrics.Services.DataServices;
+using Songrics.Services.Mapping;
 using Songrics.Services.Models;
+using Songrics.Services.Models.Home;
+using Songrics.Web.Model.Lyric;
 
 namespace Songrics.Services
 {
@@ -32,6 +35,10 @@ namespace Songrics.Services
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            AutoMapperConfig.RegisterMappings(
+                typeof(IndexViewModel).Assembly,
+                typeof(CreateLyricInputModel).Assembly);
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -75,6 +82,7 @@ namespace Songrics.Services
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+
 
             app.UseMvc(routes =>
             {
