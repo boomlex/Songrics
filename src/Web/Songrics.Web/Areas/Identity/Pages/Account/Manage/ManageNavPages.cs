@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Songrics.Services.Areas.Identity.Pages.Account.Manage
+namespace Songrics.Web.Areas.Identity.Pages.Account.Manage
 {
     public static class ManageNavPages
     {

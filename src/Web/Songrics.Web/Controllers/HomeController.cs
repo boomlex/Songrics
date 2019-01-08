@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Songrics.Services.Models.Home;
+using Songrics.Services.Models;
 
 namespace Songrics.Web.Controllers
 {

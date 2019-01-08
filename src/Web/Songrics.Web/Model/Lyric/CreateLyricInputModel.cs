@@ -1,4 +1,4 @@
-﻿namespace Songrics.Services.Models.Lyric
+﻿namespace Songrics.Web.Model.Lyric
 {
     public class CreateLyricInputModel
     {

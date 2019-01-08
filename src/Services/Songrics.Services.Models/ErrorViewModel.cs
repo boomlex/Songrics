@@ -1,4 +1,4 @@
-namespace Songrics.Services.Models.Home
+namespace Songrics.Services.Models
 {
     public class ErrorViewModel
     {

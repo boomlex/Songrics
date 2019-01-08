@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Songrics.Data.Models;
-using Songrics.Services.Models.Lyric;
 
 namespace Songrics.Services.DataServices
 {
@@ -8,6 +8,6 @@ namespace Songrics.Services.DataServices
     {
         IEnumerable<Lyric> PostLyric(int count);
 
-        int Create(CreateLyricInputModel input);
+        Task<int> Create(string title, string artistName , string albumName, string videoLink, string songLyric);
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Songrics.Data.Models;
 
-namespace Songrics.Services.Areas.Identity.Pages.Account.Manage
+namespace Songrics.Web.Areas.Identity.Pages.Account.Manage
 {
     public class DeletePersonalDataModel : PageModel
     {

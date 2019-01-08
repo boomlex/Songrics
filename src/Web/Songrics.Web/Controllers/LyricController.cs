@@ -5,10 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Songrics.Services.DataServices;
-using Songrics.Services.Models;
-using Songrics.Services.Models.Home;
-using Songrics.Services.Models.Lyric;
+using Songrics.Web.Model.Lyric;
 using Songrics.Web.Controllers;
+using CreateLyricInputModel = Songrics.Web.Model.Lyric.CreateLyricInputModel;
 
 namespace Songrics.Services.Controllers
 {
@@ -28,14 +27,14 @@ namespace Songrics.Services.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateLyricInputModel input)
+        public async Task<IActionResult> Create(CreateLyricInputModel input)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
             }
 
-            var CreateId = this.lyricsService.Create(input);
+            var CreateId = await this.lyricsService.Create(input.Title, input.ArtistName, input.AlbumName, input.VideoLink, input.SongLyric);
             return this.RedirectToAction("Details", new { id = 0 });
         }
 

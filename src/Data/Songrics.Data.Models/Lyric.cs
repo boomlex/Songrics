@@ -9,11 +9,13 @@ namespace Songrics.Data.Models
     {
         public string Title { get; set; }
 
+        public string ArtistName { get; set; }
+
+        public string AlbumName { get; set; }
+
+        public string VideoLink { get; set; }
+
         public string SongLyric { get; set; }
-
-        public string TypeLyric { get; set; }
-
-        public int ContentId { get; set; }
 
         public virtual Category Category { get; set; }
     }
