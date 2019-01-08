@@ -41,7 +41,8 @@ namespace Songrics.Services.Controllers
 
         public IActionResult Details(int id)
         {
-            return this.View();
+            var lyric = this.lyricsService.GetLyricById(id);
+            return this.View(lyric);
         }
     }
 }

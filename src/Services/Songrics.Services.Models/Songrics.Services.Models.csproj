@@ -9,8 +9,4 @@
     <ProjectReference Include="..\..\Data\Songrics.Data.Models\Songrics.Data.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Home\" />
-  </ItemGroup>
-
 </Project>
