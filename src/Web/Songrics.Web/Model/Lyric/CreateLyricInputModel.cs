@@ -1,23 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Songrics.Data.Models;
+using Songrics.Data.Models.Enums;
+
 namespace Songrics.Web.Model.Lyric
 {
     public class CreateLyricInputModel
     {
-        [Required]
         public string Title { get; set; }
 
-        [Required]
         public string ArtistName { get; set; }
 
-        [Required]
         public string AlbumName { get; set; }
+
+        public LyricCategory Category { get; set; }
 
         public string VideoLink { get; set; }
 
-        [ValidCategoryId]
-        public int CategoryId { get; set; }
-
-        [Required]
         public string SongLyric { get; set; }
+
+        public string UserId { get; set; }
+
+        public SongricsUser User { get; set; }
     }
 }

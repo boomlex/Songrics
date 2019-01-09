@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Songrics.Data.Common;
-using Songrics.Services.Models;
 
 namespace Songrics.Data
 {

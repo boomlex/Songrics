@@ -1,9 +1,19 @@
-﻿@model Songrics.Services.Models.Home.IndexViewModel
+﻿@using X.PagedList;
+@model IEnumerable<Songrics.Services.Models.Lyrics.LyricDetailsViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
-@foreach (var lyric in Model.Lyrics)
-{
-    <div>@lyric.Title</div>
-}
-    
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="@item.VideoLink" alt="...">
+                <label>Name: @item.SongLyric</label>
+                <br />
+                <a asp-controller="LyricManager" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    }
+</div>

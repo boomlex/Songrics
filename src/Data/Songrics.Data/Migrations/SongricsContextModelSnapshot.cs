@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Songrics.Services.Models;
 
 namespace Songrics.Data.Migrations
 {
@@ -129,9 +128,22 @@ namespace Songrics.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Songrics.Data.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("Songrics.Data.Models.Lyric", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -139,13 +151,25 @@ namespace Songrics.Data.Migrations
 
                     b.Property<string>("ArtistName");
 
+                    b.Property<int>("Category");
+
+                    b.Property<int?>("CategoryId");
+
+                    b.Property<double>("Rating");
+
                     b.Property<string>("SongLyric");
 
                     b.Property<string>("Title");
 
+                    b.Property<string>("UserId");
+
                     b.Property<string>("VideoLink");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Lyrics");
                 });
@@ -244,6 +268,17 @@ namespace Songrics.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Songrics.Data.Models.Lyric", b =>
+                {
+                    b.HasOne("Songrics.Data.Models.Category")
+                        .WithMany("Lyrics")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("Songrics.Data.Models.SongricsUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,36 +1,53 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Songrics.Services.DataServices;
+using Songrics.Data;
+using Songrics.Services.Data;
 using Songrics.Services.Models;
-using Songrics.Services.Models.Home;
+using Songrics.Services.Models.Lyrics;
+using X.PagedList;
 
 namespace Songrics.Web.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : BaseController
     {
-        private readonly ILyricsService lyricsService;
 
-        public HomeController(ILyricsService lyricsService)
+        private SongricsContext songricsContext;
+        private readonly LyricsServices lyricsServices;
+        private readonly IMapper mapper;
+
+
+        public HomeController(SongricsContext songricsContext,
+            LyricsServices lyricsServices,
+            IMapper mapper)
         {
-            this.lyricsService = lyricsService;
+            this.mapper = mapper;
+            this.lyricsServices = lyricsServices;
+            this.songricsContext = songricsContext;
         }
 
-        public IActionResult Index(int id)
+
+        public IActionResult Index(int? page)
         {
-            var lyrics = this.lyricsService.PostLyric(20);
-            var viewModel = new IndexViewModel
+            var receipts = this.lyricsServices.allLyrics();
+            var viewModel = new List<LyricDetailsViewModel>();
+
+            foreach (var item in receipts)
             {
-                Lyrics = lyrics,
-            };
+                var lyricViewModel = this.mapper.Map<LyricDetailsViewModel>(item);
+                viewModel.Add(lyricViewModel);
+            }
+            var nextPage = page ?? 1;
+            var pagedViewModels = viewModel.ToPagedList(nextPage, 8);
 
-            return this.View(viewModel);
+
+            return View(pagedViewModels);
+
+
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

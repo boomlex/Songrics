@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Songrics.Data.Common;
+using Songrics.Data.Models.Enums;
 
 namespace Songrics.Data.Models
 {
@@ -13,7 +14,7 @@ namespace Songrics.Data.Models
 
         public string AlbumName { get; set; }
 
-        public int CategoryId { get; set; }
+        public LyricCategory Category { get; set; }
 
         public double Rating { get; set; }
 
@@ -21,6 +22,8 @@ namespace Songrics.Data.Models
 
         public string SongLyric { get; set; }
 
-        public virtual Category Category { get; set; }
+        public string UserId { get; set; }
+
+        public SongricsUser User { get; set; }
     }
 }

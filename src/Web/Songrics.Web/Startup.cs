@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,11 +8,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Songrics.Data;
 using Songrics.Data.Common;
 using Songrics.Data.Models;
-using Songrics.Services.DataServices;
+using Songrics.Services.Data;
 using Songrics.Services.Mapping;
-using Songrics.Services.Models;
 using Songrics.Services.Models.Home;
 using Songrics.Web.Model.Lyric;
+using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 
 namespace Songrics.Services
 {
@@ -50,14 +44,20 @@ namespace Songrics.Services
                     this.Configuration.GetConnectionString("DefaultConnection")));
 
             // With this you can add manually options for passwords and more.
-            services.AddDefaultIdentity<SongricsUser>()
-                .AddEntityFrameworkStores<SongricsContext>();
+            services.AddIdentity<SongricsUser, IdentityRole>(options => { })
+                .AddEntityFrameworkStores<SongricsContext>()
+                .AddDefaultTokenProviders();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             //Application services
             services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
-            services.AddScoped<ILyricsService, LyricsService>();
+            services.AddScoped<ILyricsServices, LyricsServices>();
+            services.AddScoped<UserRoles>();
+            services.AddTransient<LyricsServices>();
+            services.AddAutoMapper();
+            //services.AddScoped<ICategoriesService, CategoriesService>();
         }
 
 

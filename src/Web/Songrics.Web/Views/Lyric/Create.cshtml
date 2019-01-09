@@ -1,50 +1,61 @@
-﻿@model Songrics.Web.Model.Lyric.CreateLyricInputModel
+﻿@using Songrics.Data.Models.Enums
+@model Songrics.Web.Model.Lyric.CreateLyricInputModel
 
 @{
-    ViewData["Title"] = "Lyric";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Submit Lyric</h1>
+<h1>Create</h1>
 
+<h4>CreateLyricInputModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Lyric">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label">Title of the song</label>
+                <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ArtistName" class="control-label">Artist name of the song</label>
+                <label asp-for="ArtistName" class="control-label"></label>
                 <input asp-for="ArtistName" class="form-control" />
                 <span asp-validation-for="ArtistName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AlbumName" class="control-label">Album name</label>
+                <label asp-for="AlbumName" class="control-label"></label>
                 <input asp-for="AlbumName" class="form-control" />
                 <span asp-validation-for="AlbumName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="VideoLink" class="control-label">Video embed link</label>
+                <label asp-for="Category" class="col-md-2 control-label"></label>
+                <div class="col-md-8">
+                    <select asp-for="Category" asp-items="Html.GetEnumSelectList<LyricCategory>()">
+                    <option selected="selected" value="">Please select Category for your receipt</option>
+                    </select>
+                    <span asp-validation-for="Category" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoLink" class="control-label"></label>
                 <input asp-for="VideoLink" class="form-control" />
                 <span asp-validation-for="VideoLink" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SongLyric" class="control-label">Song lyrics</label>
-                <textarea asp-for="SongLyric" class="form-control" rows="10"></textarea>
+                <label asp-for="SongLyric" class="control-label"></label>
+                <input asp-for="SongLyric" class="form-control" />
                 <span asp-validation-for="SongLyric" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit Lyric" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index"asp-controller="Home">Back to Home</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
