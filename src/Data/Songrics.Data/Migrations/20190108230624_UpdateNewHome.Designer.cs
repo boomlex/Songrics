@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Songrics.Services.Models;
 
 namespace Songrics.Data.Migrations
 {
     [DbContext(typeof(SongricsContext))]
-    partial class SongricsContextModelSnapshot : ModelSnapshot
+    [Migration("20190108230624_UpdateNewHome")]
+    partial class UpdateNewHome
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,6 +129,19 @@ namespace Songrics.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Songrics.Data.Models.Category", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("SongCategory");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Songrics.Data.Models.Lyric", b =>

@@ -10,8 +10,15 @@ namespace Songrics.Services.DataServices
     {
         IEnumerable<IndexLyricViewModel> PostLyric(int count);
 
-        Task<int> Create(string title, string artistName , string albumName, string videoLink, string songLyric);
+        int GetCount();
 
-        LyricDetailsViewModel GetLyricById(int Id);
+        Task<int> Create(string title, string artistName, string albumName, int categoryId, string videoLink, string songLyric);
+
+        TViewModel GetLyricById<TViewModel>(int Id);
+
+        IEnumerable<LyricSimpleViewModel> GetAllByCategory(int categoryId);
+
+        bool AddRatingToLyric(int lyricId, int rating);
     }
+
 }

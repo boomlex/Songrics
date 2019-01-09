@@ -13,6 +13,10 @@ namespace Songrics.Data.Models
 
         public string AlbumName { get; set; }
 
+        public int CategoryId { get; set; }
+
+        public double Rating { get; set; }
+
         public string VideoLink { get; set; }
 
         public string SongLyric { get; set; }

@@ -16,7 +16,7 @@ namespace Songrics.Services.Models
         {
         }
 
-        public DbSet<Category> Categories { get;set; }
+        public DbSet<Category> Categories { get; set; }
 
         public DbSet<Lyric> Lyrics { get; set; }
 

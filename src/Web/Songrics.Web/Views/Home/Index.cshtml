@@ -2,5 +2,8 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
-Hello World
+@foreach (var lyric in Model.Lyrics)
+{
+    <div>@lyric.Title</div>
+}
+    

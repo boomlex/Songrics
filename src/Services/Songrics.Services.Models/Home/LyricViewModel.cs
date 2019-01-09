@@ -21,6 +21,8 @@ namespace Songrics.Services.Models.Home
 
         public string SongLyric { get; set; }
 
+        public string HtmlContent => this.SongLyric.Replace("\n", "<br />\n");
+
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             // configuration.CreateMap<Joke, IndexJokeViewModel>().ForMember(x => x.CategoryName, x => x.MapFrom(j => j.Category.Name))

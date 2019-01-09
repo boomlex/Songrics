@@ -13,10 +13,14 @@ namespace Songrics.Services.DataServices
     public class LyricsService : ILyricsService
     {
         private readonly IRepository<Lyric> lyricRepository;
+        private readonly IRepository<Category> categoriesRepository;
 
-        public LyricsService(IRepository<Lyric> lyricRepository)
+        public LyricsService(
+            IRepository<Lyric> lyricRepository,
+            IRepository<Category> categoriesRepository)
         {
             this.lyricRepository = lyricRepository;
+            this.categoriesRepository = categoriesRepository;
         }
 
         public IEnumerable<IndexLyricViewModel> PostLyric(int count)
@@ -28,38 +32,54 @@ namespace Songrics.Services.DataServices
             return lyrics;
         }
 
-        public async Task<int> Create(string title, string artistName, string albumName, string videoLink, string songLyric)
+        public int GetCount()
         {
-            //TODO: Validate data
+            return this.lyricRepository.All().Count();
+        }
 
+        public async Task<int> Create(string title, string artistName, string albumName, int categoryId, string videoLink, string songLyric)
+        {
             var lyric = new Lyric
             {
-
                 Title = title,
                 ArtistName = artistName,
                 AlbumName = albumName,
+                CategoryId = categoryId,
                 VideoLink = videoLink,
-                SongLyric = songLyric,
+                SongLyric = songLyric
+
             };
+
             await this.lyricRepository.AddAsync(lyric);
             await this.lyricRepository.SaveChangesAsync();
 
-            return lyric.id;
+            return lyric.Id;
         }
 
-        public LyricDetailsViewModel GetLyricById(int id)
+        public TViewModel GetLyricById<TViewModel>(int id)
         {
-            var lyric = this.lyricRepository.All().Where(x => x.id == id).Select(x => new LyricDetailsViewModel
-            {
-
-                Title = x.Title,
-                ArtistName = x.ArtistName,
-                AlbumName = x.AlbumName,
-                VideoLink = x.VideoLink,
-                SongLyric = x.SongLyric,
-
-            }).FirstOrDefault();
+            var lyric = this.lyricRepository.All().Where(x => x.Id == id)
+                .To<TViewModel>().FirstOrDefault();
             return lyric;
+        }
+
+        public IEnumerable<LyricSimpleViewModel> GetAllByCategory(int categoryId)
+            => this.lyricRepository
+                .All()
+                .Where(j => j.CategoryId == categoryId)
+                .To<LyricSimpleViewModel>();
+
+
+        public bool AddRatingToLyric(int lyricId, int rating)
+        {
+            var lyric = this.lyricRepository.All().FirstOrDefault(j => j.Id == lyricId);
+            if (lyric != null)
+            {
+                lyric.Rating += rating;
+                this.lyricRepository.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
     }
 }

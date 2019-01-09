@@ -7,6 +7,13 @@ namespace Songrics.Data.Models
 {
     public class Category : BaseModel<int>
     {
-        public string SongCategory { get; set; }
+        public Category()
+        {
+            this.Lyrics = new HashSet<Lyric>();
+        }
+
+        public string Name { get; set; }
+
+        public virtual ICollection<Lyric> Lyrics { get; set; }
     }
 }
