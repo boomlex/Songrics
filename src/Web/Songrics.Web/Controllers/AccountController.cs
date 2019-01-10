@@ -15,8 +15,6 @@ namespace Songrics.Web.Controllers
     public class AccountController : BaseController
     {
         private SignInManager<SongricsUser> signInManager;
-      
-
 
         public AccountController(SignInManager<SongricsUser> signInManager)
         {
@@ -76,7 +74,7 @@ namespace Songrics.Web.Controllers
             {
                 Email = model.Email,
                 UserName = model.UserName,
-                //Nickname=model.Nickname  
+                Nickname=model.Nickname  
             };
 
             var result = this.signInManager.UserManager.CreateAsync(user, model.Password).Result;

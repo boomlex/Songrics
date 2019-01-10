@@ -1,0 +1,30 @@
+﻿@using Songrics.Services.Models;
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IEnumerable<Songrics.Services.Models.Lyrics.LyricDetailsViewModel>
+
+@{
+    ViewData["Title"] = "Userr";
+}
+<form asp-action="Userr">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="@item.VideoLink" alt="...">
+                        <label>Name: </label>
+                        <h4>@item.SongLyric </h4>
+                        <td>
+                            <a asp-controller="LyricManager" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> 
+                            <a asp-controller="LyricManager" asp-action="Details" asp-route-id="@item.Id"class="btn btn-primary">Details</a> 
+                            <a asp-controller="LyricManager" asp-action="Delete" asp-route-id="@item.Id"class="btn btn-primary">Delete</a>
+                        </td>
+                    </div>
+                </div>
+            </div>
+        }
+    </ul>
+</form>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

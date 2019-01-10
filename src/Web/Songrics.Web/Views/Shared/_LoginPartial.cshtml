@@ -4,25 +4,54 @@
 @inject SignInManager<SongricsUser> SignInManager
 @inject UserManager<SongricsUser> UserManager
 
-<ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-        </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-        </li>
-    }
-</ul>
+@if (SignInManager.IsSignedIn(User))
+{
+    if (User.IsInRole("Administrator"))
+     {
+
+         <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" class="navbar-right">
+             <ul class="nav navbar-nav">
+            
+
+                 <li>
+                     <a asp-controller="User" asp-action="Userr" title="Manage" class="dropdown-item">Hello @UserManager.GetUserName(User)!</a>
+                 </li>
+                 <li>
+                     <a asp-controller="Lyric" asp-action="Create">Create</a>
+                 </li>
+                 <li>
+                     <a asp-controller="Lyric" asp-action="Create">Manage</a>
+                 </li>
+                 <li>
+                     <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                 </li>
+          
+             </ul>
+
+         </form>
+
+     }
+     else
+     {
+         <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" class="navbar-right">
+             <ul class="nav navbar-nav navbar-right">
+                 <li>
+                     <a asp-controller="User" asp-action="Userr" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                 </li>
+                 <li>
+                     <a asp-controller="Lyric" asp-action="Create">Create</a>
+                 </li>
+                 <li>
+                     <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                 </li>
+             </ul>
+         </form>
+     }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+    </ul>
+}
