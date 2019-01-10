@@ -30,7 +30,7 @@
 
 
   <ItemGroup>
-    <Content Update="Views\Home\index.cshtml">
+    <Content Update="Views\Home\indexOriginal.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
