@@ -18,8 +18,8 @@ namespace Songrics.Web.Model.Lyric
 
         public string SongLyric { get; set; }
 
-        public string UserId { get; set; }
+       // public string UserId { get; set; }
 
-        public SongricsUser User { get; set; }
+       // public SongricsUser User { get; set; }
     }
 }

@@ -28,4 +28,11 @@
     <ProjectReference Include="..\..\Services\Songrics.Services.Models\Songrics.Services.Models.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Content Update="Views\Home\index.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

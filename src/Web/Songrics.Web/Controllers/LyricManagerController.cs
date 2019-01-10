@@ -76,7 +76,7 @@ namespace Songrics.Web.Controllers
                         Category = input.Category,
                         VideoLink = input.VideoLink,
                         SongLyric = input.SongLyric,
-                        User = input.User,
+                        User =user,
                     };
                     songricsContext.Lyrics.Remove(recToUpdate);
                     songricsContext.Lyrics.Add(lyric);

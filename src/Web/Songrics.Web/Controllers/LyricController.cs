@@ -54,7 +54,7 @@ namespace Songrics.Web.Controllers
                 Category = input.Category,
                 VideoLink = input.VideoLink,
                 SongLyric = input.SongLyric,
-                User = input.User,
+                User = user
 
             };
             songricsContext.Add(lyric);
