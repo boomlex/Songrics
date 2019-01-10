@@ -1,57 +1,60 @@
 @using Microsoft.AspNetCore.Identity
 @using Songrics.Data.Models
-
 @inject SignInManager<SongricsUser> SignInManager
 @inject UserManager<SongricsUser> UserManager
-
 @if (SignInManager.IsSignedIn(User))
 {
     if (User.IsInRole("Administrator"))
-     {
+    {
 
-         <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" class="navbar-right">
-             <ul class="nav navbar-nav">
-            
+        <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" class="navbar-right">
+            <ul class="nav navbar-nav">
 
-                 <li>
-                     <a asp-controller="User" asp-action="Userr" title="Manage" class="dropdown-item">Hello @UserManager.GetUserName(User)!</a>
-                 </li>
-                 <li>
-                     <a asp-controller="Lyric" asp-action="Create">Create</a>
-                 </li>
-                 <li>
-                     <a asp-controller="Lyric" asp-action="Create">Manage</a>
-                 </li>
-                 <li>
-                     <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                 </li>
-          
-             </ul>
+                <li>
+                    <a asp-controller="User" asp-action="Userr" title="Manage" class="dropdown-item">Hello @UserManager.GetUserName(User)!</a>
+                </li>
+                <li>
+                    <a asp-controller="Lyric" asp-action="Create">Create</a>
+                </li>
+                <li>
+                    <a asp-controller="Lyric" asp-action="Create">Manage</a>
+                </li>
+                <li>
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                </li>
 
-         </form>
+            </ul>
+        </form>
 
-     }
-     else
-     {
-         <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" class="navbar-right">
-             <ul class="nav navbar-nav navbar-right">
-                 <li>
-                     <a asp-controller="User" asp-action="Userr" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-                 </li>
-                 <li>
-                     <a asp-controller="Lyric" asp-action="Create">Create</a>
-                 </li>
-                 <li>
-                     <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                 </li>
-             </ul>
-         </form>
-     }
+    }
+    else
+    {
+        <form asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" class="navbar-right">
+            <ul class="nav navbar-nav navbar-right px-2">
+                <li>
+                    <a asp-controller="User" asp-action="Userr" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                </li>
+                <li>
+                    <a asp-controller="Lyric" asp-action="Create">Add Lyrics</a>
+                </li>
+                <li>
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                </li>
+            </ul>
+        </form>
+    }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right px-2">
         <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right px-2">
+
+
         <li><a asp-controller="Account" asp-action="Login">Login</a></li>
     </ul>
+
 }
