@@ -1,6 +1,7 @@
 ﻿@using Songrics.Data.Models.Enums
 @model Songrics.Web.Model.Lyric.CreateLyricInputModel
 
+
 @{
     ViewData["Title"] = "Create";
 }
@@ -32,7 +33,7 @@
                 <label asp-for="Category" class="col-md-2 control-label"></label>
                 <div class="col-md-8">
                     <select asp-for="Category" asp-items="Html.GetEnumSelectList<LyricCategory>()">
-                    <option selected="selected" value="">Please select Category for your receipt</option>
+                        <option selected="selected" value="">Please select Category for your receipt</option>
                     </select>
                     <span asp-validation-for="Category" class="text-danger" />
                 </div>
